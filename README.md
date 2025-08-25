@@ -4,23 +4,6 @@
 
 `VSW-Tools` é um script de shell projetado para agilizar o fluxo de trabalho de engenheiros e desenvolvedores, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos (CRC/Checksum) e comunicação direta com dispositivos via portas seriais ou TCP.
 
----
-
-## Tabela de Conteúdos
-
-1.  [Visão Geral](#visão-geral)
-2.  [Funcionalidades](#funcionalidades)
-3.  [Pré-requisitos](#pré-requisitos)
-4.  [Instalação](#instalação)
-5.  [Guia de Uso e Comandos](#guia-de-uso-e-comandos)
-    -   [Exibir Ajuda (`ajuda`)](#1-exibir-ajuda-ajuda)
-    -   [Calcular Hashes (`hash`)](#2-calcular-hashes-hash)
-    -   [Calcular Checksum e CRC (`check`)](#3-calcular-checksum-e-crc-check)
-    -   [Enviar Comandos Hexadecimais (`sendhex`)](#4-enviar-comandos-hexadecimais-sendhex)
-        -   [Modo Serial](#modo-serial-sendhex-serial)
-        -   [Modo TCP](#modo-tcp-sendhex-tcp)
-
----
 
 ## Visão Geral
 
