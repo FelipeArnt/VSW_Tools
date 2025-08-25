@@ -49,7 +49,7 @@ Para que todas as funcionalidades operem corretamente, alguns pacotes precisam e
     ```
 2.  **Libarchive Utils (`crc32`):** Necessário para a função `check` calcular o CRC32.
     ```bash
-    sudo apt-get install libarchive-utils
+    sudo apt-get install libarchive-tools
     ```
 
 ## Instalação
