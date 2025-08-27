@@ -11,13 +11,19 @@ No desenvolvimento e teste de firmware, frequentemente precisamos realizar taref
 -   Verificar a integridade de um binário após a compilação.
 -   Calcular um CRC para garantir que a transmissão de dados foi bem-sucedida.
 -   Enviar comandos de baixo nível para um dispositivo para verificar uma funcionalidade específica.
+  
+Esta ferramenta foi criada para substituir a necessidade de abrir múltiplos softwares (como calculadoras crc, Hércules, etc.), oferecendo uma interface de linha de comando unificada, rápida e scriptável. O script pode inclusive ser remodelado diversas vezes para cada caso em especifico, visando ser uma ferramenta de uso ao longo dos anos.
 
-Esta ferramenta foi criada para substituir a necessidade de abrir múltiplos softwares (como calculadoras de hash, Hércules, etc.), oferecendo uma interface de linha de comando unificada, rápida e scriptável.
+
+
+
 
 ## Funcionalidades
 
 -   **Cálculo de Hashes:** Calcula rapidamente os hashes criptográficos mais comuns (MD5, SHA1, SHA256, SHA512) para qualquer arquivo.
 -   **Verificação de Integridade:** Calcula o Checksum padrão POSIX e o CRC32, ideais para verificação de erros.
+
+## TO-DO:
 -   **Comunicação com Dispositivos:** Envia sequências de bytes (em formato hexadecimal) para dispositivos de hardware através de:
     -   **Portas Seriais** (`/dev/ttyUSB0`, `/dev/ttyS0`, etc.).
     -   **Conexões TCP/IP**.
