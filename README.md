@@ -1,6 +1,6 @@
 # Ferramenta de Linha de Comando VSW-Tools
 
-> Um canivete suíço para automação de tarefas comuns em desenvolvimento e testes de sistemas embarcados e de medição.
+> Um canivete suíço para automação de tarefas do laboratório de Verificação de Software.
 
 `VSW-Tools` é um script de shell projetado para agilizar o fluxo de trabalho de engenheiros e desenvolvedores, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos (CRC/Checksum) e comunicação direta com dispositivos via portas seriais ou TCP.
 
