@@ -35,6 +35,25 @@ ajuda() {
 }
 
 # --- FUNÇÃO PARA CALCULAR HASHES ---
+listar_aplicativos(){
+
+local saida="$1"
+if [-z "$saida"]; then
+printf "%b\n" "${C_RED}Erro: Nenhum arquivo de saida foi especificado.${C_NC}"
+        ajuda
+fi
+
+    printf "%b\n" "${C_CYAN}Listando os programas da TV-BOX:${C_NC} ${ARQUIVO}"
+    printf "%b\n" "${C_YELLOW}-------------------------------------------------${C_NC}"
+    echo '[INFO] Instalando ferramentas necessárias'
+    echo '[INFO] Iniciando script TV-BOX'
+    adb shell pm list packages -s -e -f > aplicativos.md
+    printf "[RESULTS] Aplicatitvos encontrados: %b\n" "${C_GREEN}$(adb shell pm list packages -s -e -f "$saida" | awk '{print $1}')${C_NC}"
+    printf "%b\n" "${C_YELLOW}-------------------------------------------------${C_NC}"
+
+
+}
+
 calcular_hashes() {
     local ARQUIVO="$1"
     if [ -z "$ARQUIVO" ]; then
@@ -168,6 +187,9 @@ case "$COMANDO" in
         ;;
     sendhex)
         enviar_hex "$@"
+        ;;
+     tvbox)
+         listar_aplicativos "$@"
         ;;
     ajuda|-h|--help)
         ajuda
