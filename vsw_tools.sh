@@ -45,8 +45,8 @@ fi
 
     printf "%b\n" "${C_CYAN}Listando os programas da TV-BOX:${C_NC} ${ARQUIVO}"
     printf "%b\n" "${C_YELLOW}-------------------------------------------------${C_NC}"
-    echo '[INFO] Instalando ferramentas necessárias'
-    echo '[INFO] Iniciando script TV-BOX'
+    printf "%b\n" "${C_GREEN}[INFO] Instalando ferramentas necessárias'
+    printf "%b\n" ""${C_GREEN}[INFO] Iniciando script TV-BOX"
     adb shell pm list packages -s -e -f > aplicativos.md
     printf "[RESULTS] Aplicatitvos encontrados: %b\n" "${C_GREEN}$(adb shell pm list packages -s -e -f "$saida" | awk '{print $1}')${C_NC}"
     printf "%b\n" "${C_YELLOW}-------------------------------------------------${C_NC}"
