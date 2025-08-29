@@ -1,48 +1,43 @@
-# Ferramenta de Linha de Comando VSW-Tools
+# Ferramenta VSW-Tools - Ensaios de Metrologia Legal e Anatel.
+  > Um canivete suíço para automação de tarefas do laboratório de Verificação de Software do LABELO.
 
-> Um canivete suíço para automação de tarefas do laboratório de Verificação de Software.
-
-`VSW-Tools` é um script de shell projetado para agilizar o fluxo de trabalho de engenheiros e desenvolvedores, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos (CRC/Checksum) e comunicação direta com dispositivos via portas seriais ou TCP.
-
+`VSW-Tools` é um script de shell projetado para agilizar o fluxo de trabalho, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos (CRC/Checksum) e comunicação direta com dispositivos via portas seriais ou TCP/IP.
 
 ## Visão Geral
+No Laboratório, frequentemente precisamos realizar tarefas repetitivas tanto para o Metrologia legal quanto para ensaios de CiberSegurança.
 
-No desenvolvimento e teste de firmware, frequentemente precisamos realizar tarefas repetitivas:
--   Verificar a integridade de um binário após a compilação.
+### Metrologia Legal:
+-   Verificar a integridade de um binário ou diretório.
 -   Calcular um CRC para garantir que a transmissão de dados foi bem-sucedida.
 -   Enviar comandos de baixo nível para um dispositivo para verificar uma funcionalidade específica.
-  
+### Roteadores e TV-Box
+-   Listar pacotes disponíveis em uma TV-BOX.
+-   Iniciar script nmap nos padrões do laboratório.
+
 Esta ferramenta foi criada para substituir a necessidade de abrir múltiplos softwares (como calculadoras crc, Hércules, etc.), oferecendo uma interface de linha de comando unificada, rápida e scriptável. O script pode inclusive ser remodelado diversas vezes para cada caso em especifico, visando ser uma ferramenta de uso ao longo dos anos.
 
-
-
-
-
 ## Funcionalidades
-
 -   **Cálculo de Hashes:** Calcula rapidamente os hashes criptográficos mais comuns (MD5, SHA1, SHA256, SHA512) para qualquer arquivo.
 -   **Verificação de Integridade:** Calcula o Checksum padrão POSIX e o CRC32, ideais para verificação de erros.
-
-## TO-DO:
 -   **Comunicação com Dispositivos:** Envia sequências de bytes (em formato hexadecimal) para dispositivos de hardware através de:
     -   **Portas Seriais** (`/dev/ttyUSB0`, `/dev/ttyS0`, etc.).
     -   **Conexões TCP/IP**.
 
 ## Pré-requisitos
-
 Para que todas as funcionalidades operem corretamente, alguns pacotes precisam estar instalados no seu sistema (Debian/Ubuntu/Pop!_OS):
 
-1.  **Netcat (`nc`):** Essencial para a função `sendhex tcp`.
+1. **Sistema Operacional Linux instalado - Debian/Ubuntu based distros!!**
+
+2.  **Netcat (`nc`):** Essencial para a função `sendhex tcp`.
     ```bash
     sudo apt-get update && sudo apt-get install netcat
     ```
-2.  **Libarchive Utils (`crc32`):** Necessário para a função `check` calcular o CRC32.
+3.  **Libarchive Utils (`crc32`):** Necessário para a função `check` calcular o CRC32.
     ```bash
     sudo apt-get install libarchive-tools
     ```
 
 ## Instalação
-
 Para tornar o script `vsw_tools` acessível de qualquer lugar no seu terminal, siga estes passos:
 
 1.  **Torne o script executável:**
@@ -56,8 +51,7 @@ Para tornar o script `vsw_tools` acessível de qualquer lugar no seu terminal, s
     sudo mv vsw_tools /usr/local/bin/
     ```
 
-## Guia de Uso e Comandos
-
+## Comandos
 A sintaxe geral para usar a ferramenta é:
 
 ```bash
@@ -67,7 +61,6 @@ vsw_tools <comando> [argumentos...]
 ---
 
 ### 1. Exibir Ajuda (`ajuda`)
-
 Exibe uma mensagem com todos os comandos disponíveis e exemplos de uso.
 
 **Comando:**
