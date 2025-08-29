@@ -1,4 +1,4 @@
-# Ferramenta VSW-Tools - Ensaios de Metrologia Legal e Anatel.
+# Ferramenta VSW-Tools - Ensaios de Metrologia e CiberSegurança.
   > Um canivete suíço para automação de tarefas do laboratório de Verificação de Software do LABELO.
 
 `VSW-Tools` é um script de shell projetado para agilizar o fluxo de trabalho, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos (CRC/Checksum) e comunicação direta com dispositivos via portas seriais ou TCP/IP.
