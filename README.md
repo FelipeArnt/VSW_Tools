@@ -22,21 +22,7 @@ Esta ferramenta foi criada para substituir a necessidade de abrir múltiplos sof
 -   **Comunicação com Dispositivos:** Envia sequências de bytes (em formato hexadecimal) para dispositivos de hardware através de:
     -   **Portas Seriais** (`/dev/ttyUSB0`, `/dev/ttyS0`, etc.).
     -   **Conexões TCP/IP**.
-
-## Pré-requisitos
-Para que todas as funcionalidades operem corretamente, alguns pacotes precisam estar instalados no seu sistema (Debian/Ubuntu/Pop!_OS):
-
-1. **Sistema Operacional Linux instalado - Debian/Ubuntu based distros!!**
-
-2.  **Netcat (`nc`):** Essencial para a função `sendhex tcp`.
-    ```bash
-    sudo apt-get update && sudo apt-get install netcat
-    ```
-3.  **Libarchive Utils (`crc32`):** Necessário para a função `check` calcular o CRC32.
-    ```bash
-    sudo apt-get install libarchive-tools
-    ```
-
+  
 ## Instalação
 Para tornar o script `vsw_tools` acessível de qualquer lugar no seu terminal, siga estes passos:
 
