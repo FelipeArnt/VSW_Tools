@@ -53,5 +53,5 @@ Exibe uma mensagem com todos os comandos disponíveis e exemplos de uso.
 ```bash
 vsw_tools ajuda
 # Ou
-vsw_tools
+vsw_tools -h
 ```
