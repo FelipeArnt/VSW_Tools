@@ -42,6 +42,8 @@ A sintaxe geral para usar a ferramenta é:
 
 ```bash
 vsw_tools <comando> [argumentos...]
+# Comandos [hash, check sendhex]
+# Argumentos [Arquivos ou path p portas seriais]
 ```
 
 ---
