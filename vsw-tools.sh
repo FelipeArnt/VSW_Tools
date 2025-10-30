@@ -68,7 +68,7 @@ verificar_todas_dependencias() {
 
 # Funções principais
 ajuda() {
-  printf "%b\n" "${C}Ferramenta para desenvolvimento embarcado${NC}\nUso: ${0} <comando> [args]"
+  printf "%b\n" "${C}Ferramenta para Metrologia Legal e Segurança Cibernética.${NC}\nUso: ${0} <comando> [args]"
   printf "\n${Y}Comandos:${NC}\n"
   printf "  ${G}hash <arquivo>${NC}    Calcula MD5, SHA1, SHA256, SHA512\n"
   printf "  ${G}check <arquivo>${NC}   Calcula CRC32 e Checksum\n"
