@@ -12,8 +12,6 @@ No Laboratório, frequentemente precisamos realizar tarefas repetitivas tanto pa
 Esta ferramenta foi criada para substituir a necessidade de abrir múltiplos softwares ou executar comandos longos, oferecendo uma interface de linha de comando unificada, rápida e scriptável.
 
 ## Funcionalidades
-Baseado no código-fonte, a ferramenta atualmente suporta:
-
 - **Cálculo de Hashes:** Calcula rapidamente os hashes criptográficos MD5, SHA1, SHA256 e SHA512 para qualquer arquivo.
 - **Verificação de Integridade:** Calcula o Checksum padrão POSIX (`cksum`) e o CRC32.
 - **Configuração de Rede:** Permite configurar rapidamente um endereço IP estático e máscara (formato CIDR) para uma interface de rede específica.
@@ -106,7 +104,7 @@ CRC32          : 00000000
 
 ### 4\. Configurar IP (`ip`)
 
-Inicia um assistente interativo para configurar um IP estático em uma interface de rede[cite: 1]. [cite\_start]O script listará as interfaces disponíveis, solicitará a interface e o IP/CIDR, e aplicará a configuração usando `sudo`.
+Inicia um assistente interativo para configurar um IP estático em uma interface de rede. O script listará as interfaces disponíveis, solicitará a interface e o IP/CIDR, e aplicará a configuração usando `sudo`.
 
 **Uso:**
 
