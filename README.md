@@ -129,3 +129,5 @@ Configuração atual:
     inet 192.168.15.10/24 brd 192.168.15.255 scope global eth0
     inet6 fe80::...
 ```
+
+### TO-DO: nmap e tcpdump
