@@ -1,5 +1,5 @@
 #!/bin/bash
-# vsw_tools - Canivete suíço do laboratório de Verificação de Software.
+# vsw_tools - Canivete suíço do laboratório de Verificação de Software do LABELO.
 
 R='\033[0;31m'
 G='\033[0;32m'
@@ -109,53 +109,58 @@ executar_tcpdump() {
   sudo tcpdump "$@"
 }
 
-case "${1,,}" in
-verificar)
-  local todas_faltando=()
-  for cmd in "${!DEPENDENCIAS[@]}"; do
-    local deps=(${DEPENDENCIAS[$cmd]})
-    local falt=$(verificar_deps "${deps[@]}")
-    [ -n "$falt" ] && todas_faltando+=($falt)
-  done
-  if [ ${#todas_faltando[@]} -gt 0 ]; then
-    local faltando_unicas=($(printf "%s\n" "${todas_faltando[@]}" | sort -u))
-    printf "${R}Dependências faltando:${NC}\n"
-    printf "  - %s\n" "${faltando_unicas[@]}"
-    printf "${Y}Instale antes de continuar.${NC}\n"
-  else
-    printf "${G}Todas as dependências instaladas!${NC}\n"
-  fi
-  ;;
-hash)
-  local deps=(${DEPENDENCIAS[hash]})
-  [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
-  calcular_hashes "$2"
-  ;;
-check)
-  local deps=(${DEPENDENCIAS[check]})
-  [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
-  calcular_checksum "$2"
-  ;;
-ip)
-  local deps=(${DEPENDENCIAS[ip]})
-  [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
-  configurar_ip
-  ;;
-nmap)
-  local deps=(${DEPENDENCIAS[nmap]})
-  [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
-  shift
-  executar_nmap "$@"
-  ;;
-tcpdump)
-  local deps=(${DEPENDENCIAS[tcpdump]})
-  [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
-  shift
-  executar_tcpdump "$@"
-  ;;
-ajuda | -h | --help) ajuda ;;
-*)
-  printf "${R}Comando não reconhecido: $1${NC}\n"
-  ajuda
-  ;;
-esac
+# Função principal para processar comandos (permite usar local)
+main() {
+  case "${1,,}" in
+  verificar)
+    local todas_faltando=()
+    for cmd in "${!DEPENDENCIAS[@]}"; do
+      local deps=(${DEPENDENCIAS[$cmd]})
+      local falt=$(verificar_deps "${deps[@]}")
+      [ -n "$falt" ] && todas_faltando+=($falt)
+    done
+    if [ ${#todas_faltando[@]} -gt 0 ]; then
+      local faltando_unicas=($(printf "%s\n" "${todas_faltando[@]}" | sort -u))
+      printf "${R}Dependências faltando:${NC}\n"
+      printf "  - %s\n" "${faltando_unicas[@]}"
+      printf "${Y}Instale antes de continuar.${NC}\n"
+    else
+      printf "${G}Todas as dependências instaladas!${NC}\n"
+    fi
+    ;;
+  hash)
+    local deps=(${DEPENDENCIAS[hash]})
+    [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
+    calcular_hashes "$2"
+    ;;
+  check)
+    local deps=(${DEPENDENCIAS[check]})
+    [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
+    calcular_checksum "$2"
+    ;;
+  ip)
+    local deps=(${DEPENDENCIAS[ip]})
+    [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
+    configurar_ip
+    ;;
+  nmap)
+    local deps=(${DEPENDENCIAS[nmap]})
+    [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
+    shift
+    executar_nmap "$@"
+    ;;
+  tcpdump)
+    local deps=(${DEPENDENCIAS[tcpdump]})
+    [ -n "$(verificar_deps "${deps[@]}")" ] && die "Dependências faltando: $(verificar_deps "${deps[@]}")"
+    shift
+    executar_tcpdump "$@"
+    ;;
+  ajuda | -h | --help) ajuda ;;
+  *)
+    printf "${R}Comando não reconhecido: $1${NC}\n"
+    ajuda
+    ;;
+  esac
+}
+# Chamar a função main com os argumentos do script
+main "$@"
