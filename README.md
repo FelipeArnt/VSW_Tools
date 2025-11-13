@@ -1,9 +1,10 @@
 # VSW-Tools - Ensaios de Metrologia e Segurança Cibernética
 > Um canivete suíço para automação de tarefas do laboratório de Verificação de Software do LABELO.
 
-`vsw_tools` é um script de shell projetado para agilizar o fluxo de trabalho no laboratório, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos e configuração rápida de rede.
+`vsw-tools` é um script de shell projetado para agilizar o fluxo de trabalho no laboratório, centralizando funções essenciais como cálculo de hashes, verificação de integridade de arquivos e configuração rápida de rede.
 
 ## Visão Geral
+
 No Laboratório, frequentemente precisamos realizar tarefas repetitivas tanto para a Metrologia Legal quanto para ensaios de Segurança Cibernética, como:
 - Verificar a integridade de um binário ou diretório.
 - Calcular um CRC para garantir que a transmissão de dados foi bem-sucedida.
@@ -12,12 +13,14 @@ No Laboratório, frequentemente precisamos realizar tarefas repetitivas tanto pa
 Esta ferramenta foi criada para substituir a necessidade de abrir múltiplos softwares ou executar comandos longos, oferecendo uma interface de linha de comando unificada, rápida e scriptável.
 
 ## Funcionalidades
+
 - **Cálculo de Hashes:** Calcula rapidamente os hashes criptográficos MD5, SHA1, SHA256 e SHA512 para qualquer arquivo.
 - **Verificação de Integridade:** Calcula o Checksum padrão POSIX (`cksum`) e o CRC32.
 - **Configuração de Rede:** Permite configurar rapidamente um endereço IP estático e máscara (formato CIDR) para uma interface de rede específica.
 
 ## Dependências
-Para que o `vsw_tools` funcione completamente, os seguintes pacotes são necessários:
+
+Para que o `vsw-tools` funcione completamente, os seguintes pacotes são necessários:
 
 - `coreutils`: Fornece `md5sum`, `sha1sum`, `sha256sum`, `sha512sum`, `cksum`, `awk`, `grep`, etc.
 - `iproute2`: Fornece o comando `ip` (usado pela função `configurar_ip`).
@@ -25,24 +28,25 @@ Para que o `vsw_tools` funcione completamente, os seguintes pacotes são necess�
 - `libarchive-utils`: Fornece o comando `crc32`. O script informará se ele estiver faltando.
 
 ## Instalação
-Para tornar o script `vsw_tools` acessível de qualquer lugar no seu terminal, siga estes passos:
+
+Para tornar o script `vsw-tools` acessível de qualquer lugar no seu terminal, siga estes passos:
 
 1.  **Torne o script executável:**
     ```bash
-    chmod +x vsw_tools
+    chmod +x vsw-tools
     ```
 
 2.  **Mova o script para um diretório no seu PATH (recomendado):**
-    Isso permite que você chame a ferramenta apenas pelo nome (`vsw_tools`) em vez do caminho completo (`./vsw_tools`). O diretório `/usr/local/bin` é o local padrão para isso.
+    Isso permite que você chame a ferramenta apenas pelo nome (`vsw-tools`) em vez do caminho completo (`./vsw-tools`). O diretório `/usr/local/bin` é o local padrão para isso.
     ```bash
-    sudo mv vsw_tools /usr/local/bin/
+    sudo mv vsw-tools /usr/local/bin/**`vsw-tools`**
     ```
 
 ## Comandos
 A sintaxe geral para usar a ferramenta é:
 
 ```bash
-vsw_tools <comando> [argumentos...]
+vsw-tools <comando> [argumentos...]
 ````
 
 -----
@@ -54,7 +58,7 @@ Exibe a mensagem de ajuda com todos os comandos disponíveis.
 **Comando:**
 
 ```bash
-vsw_tools ajuda
+vsw-tools ajuda
 # Ou qualquer comando inválido, -h, --help
 ```
 
@@ -65,13 +69,13 @@ Calcula e exibe os hashes MD5, SHA1, SHA256 e SHA512 de um arquivo.
 **Uso:**
 
 ```bash
-vsw_tools hash <caminho_do_arquivo>
+vsw-tools hash <caminho_do_arquivo>
 ```
 
 **Exemplo:**
 
 ```bash
-$ vsw_tools hash firmware.bin
+$ vsw-tools hash firmware.bin
 Hashes para: firmware.bin
 ----------------------------------------
 MD5    : d41d8cd98f00b204e9800998ecf8427e
@@ -88,13 +92,13 @@ Calcula e exibe o Checksum (POSIX) e o CRC32 de um arquivo.
 **Uso:**
 
 ```bash
-vsw_tools check <caminho_do_arquivo>
+vsw-tools check <caminho_do_arquivo>
 ```
 
 **Exemplo:**
 
 ```bash
-$ vsw_tools check firmware.bin
+$ vsw-tools check firmware.bin
 Checksum/CRC para: firmware.bin
 ----------------------------------------
 Checksum (POSIX): 4294967295
@@ -109,13 +113,13 @@ Inicia um assistente interativo para configurar um IP estático em uma interface
 **Uso:**
 
 ```bash
-vsw_tools ip
+vsw-tools ip
 ```
 
 **Exemplo:**
 
 ```bash
-$ vsw_tools ip
+$ vsw-tools ip
 Interfaces disponíveis:
 lo
 eth0
@@ -130,4 +134,6 @@ Configuração atual:
     inet6 fe80::...
 ```
 
-### TO-DO: nmap e tcpdump
+# TO-DO:
+- **NMAP**
+- **TCPDUMP**
