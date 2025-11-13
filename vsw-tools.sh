@@ -1,4 +1,5 @@
 #!/bin/bash
+# |----|LABELO/VSW|----|@author:FelipeArnt|----|
 # vsw_tools - Canivete suíço do laboratório de Verificação de Software do LABELO.
 
 R='\033[0;31m'
